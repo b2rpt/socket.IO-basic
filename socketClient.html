@@ -1,0 +1,20 @@
+<script type="module">
+  import { io } from "https://cdn.socket.io/4.5.4/socket.io.esm.min.js";
+  const socket = io("http://localhost:3000");
+  socket.on("connect", () => {
+    console.log("Connected to server", socket);
+    socket.emit("client-message", "Hello from client");
+  });
+  
+  socket.on("server-message", (data) => {
+    console.log(data);
+  });
+
+  socket.on("server-message-to-client", (data) => {
+    console.log(data);
+  });
+
+  socket.io.on("reconnect", () => {
+    console.log("Reconnected to server");
+  });
+</script>
