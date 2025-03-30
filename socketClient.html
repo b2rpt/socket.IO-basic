@@ -1,3 +1,9 @@
+<h3>This is the client side for your basic socket connection</h3>
+<h4>
+  You can see the logs in the console just Ctrl + Shift + J and reload the page
+</h4>
+<h5>Note: If error in console please check your server is running</h5>
+
 <script type="module">
   import { io } from "https://cdn.socket.io/4.5.4/socket.io.esm.min.js";
   const socket = io("http://localhost:3000");
@@ -5,7 +11,7 @@
     console.log("Connected to server", socket);
     socket.emit("client-message", "Hello from client");
   });
-  
+
   socket.on("server-message", (data) => {
     console.log(data);
   });
